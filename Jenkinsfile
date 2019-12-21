@@ -1,7 +1,4 @@
 // Maintained by: Roshan Sawant
-def getTimeStamp(){
-    return sh (script: "date +'%Y%m%d%H%M%S%N' | sed 's/[0-9][0-9][0-9][0-9][0-9][0-9]\$//g'", returnStdout: true);
-}
 def getEnvVar(String paramName){
     return sh (script: "grep '${paramName}' env_vars/project.properties|cut -d'=' -f2", returnStdout: true).trim();
 }
@@ -54,7 +51,6 @@ stages{
         env.BASE_DIR = pwd()
         env.CURRENT_BRANCH = env.BRANCH_NAME
         env.IMAGE_TAG = getImageTag(env.CURRENT_BRANCH)
-        env.TIMESTAMP = getTimeStamp()
         env.APP_NAME= getEnvVar('APP_NAME')
         env.IMAGE_NAME = getEnvVar('IMAGE_NAME')
         env.PROJECT_NAME=getEnvVar('PROJECT_NAME')
@@ -141,7 +137,7 @@ post {
         // ''',
         // recipientProviders: [[$class: "FirstFailingBuildSusspectRecipientProvider"]],
         // subject: "Build# ${env.BUILD_NUMBER} - Job: ${env.JOB_NUMBER} status is: ${currentBuild.currentResult}",
-        // to: "e.amitthakur@gmail.com")
+        // to: "roshansawant700@gmail.com")
     }
 }
 }
