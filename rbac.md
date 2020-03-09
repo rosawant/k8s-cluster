@@ -1,7 +1,9 @@
+# Setup RBAC user for eks cluster
 
-####On K8s master machine
+## On K8s master machine
 Create iam user with EKS read permission
 
+```
 #kubectl get cm --all-namespaces
 NAMESPACE     NAME                                 DATA   AGE
 kube-system   aws-auth                             1      27h
@@ -9,6 +11,7 @@ kube-system   coredns                              1      27h
 
 
 #kubectl edit cm/aws-auth --all-namespaces
+```
 
 ```
 # Please edit the object below. Lines beginning with a '#' will be ignored,
@@ -34,16 +37,14 @@ data:
         - system:masters
 ```
 
-###On other node
+## On agent node
 
-Prerequisites-
+Pre-requisites-
 aws cli
 kubectl
 
-
-
 #aws eks update-kubeconfig --name  <cluster-name>
-you wil get new /home/user/.kube/config file created
+we wil get new /home/user/.kube/config file created
 
 #kubectl get po
 
