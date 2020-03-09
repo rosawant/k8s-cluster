@@ -43,9 +43,11 @@ Pre-requisites-
 aws cli
 kubectl
 
+```
 #aws eks update-kubeconfig --name  <cluster-name>
+```
 we wil get new /home/user/.kube/config file created
-
+```
 #kubectl get po
-
+```
 
