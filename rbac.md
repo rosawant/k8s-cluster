@@ -10,7 +10,7 @@ kube-system   coredns                              1      27h
 
 #kubectl edit cm/aws-auth --all-namespaces
 
-
+```
 # Please edit the object below. Lines beginning with a '#' will be ignored,
 # and an empty file will abort the edit. If an error occurs while saving this file will be
 # reopened with the relevant failures.
@@ -32,7 +32,7 @@ data:
       username: ops-user
       groups:
         - system:masters
-
+```
 
 ###On other node
 
