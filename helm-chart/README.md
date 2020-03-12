@@ -74,7 +74,7 @@ REVISION        UPDATED                         STATUS          CHART           
 Update chart to new revision
 
 ```
-[root@ ~]# helm upgrade kindled-seal <chart-url/dir>
+[root@ ~]# helm upgrade kindled-seal myapp
 
 ```
 
