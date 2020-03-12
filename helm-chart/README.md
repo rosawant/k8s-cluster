@@ -61,6 +61,21 @@ NOTES:
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl port-forward $POD_NAME 8080:80
 
+[root@ myapp]# helm list
+NAME            REVISION        UPDATED                         STATUS          CHART           APP VERSION     NAMESPACE
+kindled-seal    2               Thu Mar 12 10:10:50 2020        DEPLOYED        myapp-0.2.0     1.0             default
+[root@perf05buildserver myapp]# helm history kindled-seal
+REVISION        UPDATED                         STATUS          CHART           DESCRIPTION
+1               Thu Mar 12 09:14:18 2020        SUPERSEDED      myapp-0.1.0     Install complete
+2               Thu Mar 12 10:10:50 2020        DEPLOYED        myapp-0.2.0     Upgrade complete
+[root@ myapp]#
+[root@ myapp]#
+```
+Update chart to new revision
+
+```
+[root@ ~]# helm upgrade kindled-seal <chart-url/dir>
+
 ```
 
 
