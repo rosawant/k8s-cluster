@@ -2,7 +2,7 @@
 
 # HELM Chart application setup
 
-Ref docd::https://medium.com/@gajus/the-missing-ci-cd-kubernetes-component-helm-package-manager-1fe002aac680
+Ref doc::https://medium.com/@gajus/the-missing-ci-cd-kubernetes-component-helm-package-manager-1fe002aac680
 
 Use helm client to deploy tiller to the Kubernetes cluster:
 helm init uses the ~/.kube/config configuration to connect to the Kubernetes cluster. Ensure that your configuration is referencing a cluster that is safe to make test deployments.
@@ -104,6 +104,24 @@ hello-node  1        1        1           1          20h
 NAME                       READY  STATUS   RESTARTS  AGE
 hello-node-dff5879d-p7fps  1/1    Running  0         19h
 ```
+
+Kubernetes deployment using helm:
+
+Deploy tiller independently and use:
+Coz we already have tiller installed on k8s cluster
+```$xslt
+helm init --client-only
+```
+
+To perform an install or upgrade us:
+```$xslt
+helm upgrade --install <chart> 
+```
+The --wait option can be used to wait for pods to start
+
+--wait                     if set, will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment are in a ready state before marking the release as successful. It will wait for as long as --timeout
+
+
 
 
 
