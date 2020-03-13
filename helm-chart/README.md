@@ -62,7 +62,33 @@ NOTES:
   kubectl port-forward $POD_NAME 8080:80
 
 ```
+Get all resources created by helm chart
+```
+[root@ ~]# helm list
+NAME            REVISION        UPDATED                         STATUS          CHART           APP VERSION     NAMESPACE
+kindled-seal    2               Thu Mar 12 10:10:50 2020        DEPLOYED        myapp-0.2.0     1.0             default
+[root@ ~]# helm status kindled-seal
+LAST DEPLOYED: Thu Mar 12 10:10:50 2020
+NAMESPACE: default
+STATUS: DEPLOYED
 
+RESOURCES:
+==> v1/ClusterRole
+NAME           AGE
+secret-reader  20h
+
+==> v1/Service
+NAME        TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)   AGE
+hello-node  ClusterIP  <>             <none>       8080/TCP  20h
+
+==> v1beta1/Deployment
+NAME        DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+hello-node  1        1        1           1          20h
+
+==> v1/Pod(related)
+NAME                       READY  STATUS   RESTARTS  AGE
+hello-node-dff5879d-p7fps  1/1    Running  0         19h
+```
 
 
 
